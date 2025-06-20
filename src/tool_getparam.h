@@ -36,6 +36,7 @@ typedef enum {
   C_APPEND,
   C_AWS_SIGV4,
   C_BASIC,
+  C_BOOL_RV,
   C_BUFFER,
   C_CA_NATIVE,
   C_CACERT,

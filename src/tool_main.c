@@ -223,6 +223,13 @@ static void main_free(struct GlobalConfig *config)
   config->last = NULL;
 }
 
+static CURLcode boolrv(struct GlobalConfig *config, CURLcode result)
+{
+  if (config && config->boolrv) {
+    return (CURLE_OK == result) && 0 || 1;
+  } else { return result; }
+}
+
 /*
 ** curl tool main function.
 */
@@ -281,7 +288,7 @@ int main(int argc, char *argv[])
   result = main_init(&global);
   if(!result) {
     /* Start our curl operation */
-    result = operate(&global, argc, argv);
+    result = boolrv(&global, operate(&global, argc, argv));
 
     /* Perform the main cleanup */
     main_free(&global);

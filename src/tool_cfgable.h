@@ -365,6 +365,7 @@ struct GlobalConfig {
   BIT(test_event_based);
 #endif
   BIT(parallel);
+  BIT(boolrv);
   BIT(parallel_connect);
   BIT(fail_early);                /* exit on first transfer error */
   BIT(styled_output);             /* enable fancy output style detection */

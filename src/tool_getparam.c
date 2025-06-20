@@ -91,6 +91,7 @@ static const struct LongShort aliases[]= {
   {"append",                     ARG_BOOL, 'a', C_APPEND},
   {"aws-sigv4",                  ARG_STRG, ' ', C_AWS_SIGV4},
   {"basic",                      ARG_BOOL, ' ', C_BASIC},
+  {"boolrv",                     ARG_BOOL, ' ', C_BOOL_RV},
   {"buffer",                     ARG_BOOL|ARG_NO, 'N', C_BUFFER},
   {"ca-native",                  ARG_BOOL|ARG_TLS, ' ', C_CA_NATIVE},
   {"cacert",                     ARG_FILE|ARG_TLS, ' ', C_CACERT},
@@ -2153,6 +2154,9 @@ static ParameterError opt_bool(struct GlobalConfig *global,
     break;
   case C_MPTCP: /* --mptcp */
     config->mptcp = toggle;
+    break;
+  case C_BOOL_RV: /* --boolrv */
+    global->boolrv = toggle;
     break;
   default:
     return PARAM_OPTION_UNKNOWN;
